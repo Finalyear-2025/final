@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const ShowResult = () => {
+  const { t } = useTranslation();
   const [history, setHistory] = useState([]);
-  const token = localStorage.getItem("token");
+  const hasFetched = useRef(false);
 
   useEffect(() => {
+    if (hasFetched.current) return;
+    hasFetched.current = true;
+
     const token = localStorage.getItem("token");
 
     if (!token) {
-      alert("You must be logged in!");
+      alert(t("must_login"));
       return;
     }
 
@@ -21,37 +26,37 @@ const ShowResult = () => {
           },
           withCredentials: true,
         });
-        console.log(response)
+        console.log(response);
         setHistory(response.data);
       } catch (error) {
-        alert("Login plz");
+        alert(t("must_login"));
         console.error("Error fetching history:", error);
       }
     };
-
     fetchHistory();
-  }, []);
+  }, [t]);
 
   return (
     <div className="container mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">Previous Upload History</h2>
+      <h2 className="text-2xl font-bold mb-4">{t("upload_history")}</h2>
       <div className="overflow-x-auto">
         <table className="w-full border border-gray-300 shadow-md rounded-lg">
           <thead className="bg-gray-200">
             <tr>
-              <th className="p-3 border">Name</th>
-              <th className="p-3 border">Age</th>
-              <th className="p-3 border">Pic</th>
-              <th className="p-3 border">Confidence</th>
-              <th className="p-3 border">Severity</th>
-              <th className="p-3 border">Date & Time</th>
+              <th className="p-3 border">{t("name")}</th>
+              <th className="p-3 border">{t("age")}</th>
+              <th className="p-3 border">{t("pic")}</th>
+              <th className="p-3 border">{t("cancer_type")}</th>
+              <th className="p-3 border">{t("confidence")}</th>
+              <th className="p-3 border">{t("severity")}</th>
+              <th className="p-3 border">{t("date_time")}</th>
             </tr>
           </thead>
           <tbody>
             {history.length === 0 ? (
               <tr>
-                <td colSpan="6" className="text-center p-4">
-                  No history available
+                <td colSpan="7" className="text-center p-4">
+                  {t("no_history")}
                 </td>
               </tr>
             ) : (
@@ -66,6 +71,7 @@ const ShowResult = () => {
                       alt="Upload"
                     />
                   </td>
+                  <td className="p-3 border">{entry.prediction}</td>
                   <td className="p-3 border">{entry.confidence}%</td>
                   <td className="p-3 border">{entry.severity}</td>
                   <td className="p-3 border">

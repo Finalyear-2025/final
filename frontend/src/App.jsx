@@ -4,13 +4,14 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import UploadForm from "./components/UploadForm";
 import ShowResult from "./components/Show";
-
+import ChartViewer from "./components/chart";
 function App() {
   return (
     <Router>
       <Header />
       <Routes>
         <Route path="/Show" element={<ShowResult />}/>
+        <Route path="/graph" element={<ChartViewer />}/>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<UploadForm />} />

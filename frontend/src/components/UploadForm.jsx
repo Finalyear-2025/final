@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next"; // ✅ Import this
 
 const UploadForm = () => {
@@ -71,31 +72,48 @@ const UploadForm = () => {
 
       {/* Displaying the prediction result */}
       {predictionData && (
-  <div className="p-6 mt-4 max-w-xl mx-auto bg-white rounded-lg shadow-lg">
-    <h3 className="text-2xl font-semibold mb-4 text-center text-gray-700">{t("prediction_result")}</h3>
-    
-    <div className="space-y-4">
-      <p className="text-lg"><strong>{t("prediction")}:</strong> {predictionData.prediction}</p>
-      <p className="text-lg"><strong>{t("confidence")}:</strong> {predictionData.confidence}</p>
-      <p className="text-lg"><strong>{t("severity")}:</strong> {predictionData.severity}</p>
-      <p className="text-lg"><strong>{t("severity_level")}:</strong> {predictionData.severity_level}</p>
-    </div>
+        <div className="p-6 mt-4 max-w-xl mx-auto bg-white rounded-lg shadow-lg">
+          <h3 className="text-2xl font-semibold mb-4 text-center text-gray-700">
+            {t("prediction_result")}
+          </h3>
 
-    {/* Displaying the image */}
-    <div className="mt-6 text-center">
-      <strong>{t("image")}:</strong>
-      <div className="mt-4">
-        <img 
-          src={predictionData.image_url} 
-          alt="Uploaded Image" 
-          className="w-80 h-80 object-cover rounded-md shadow-lg mx-auto"
-        />
+          <div className="space-y-4">
+            <p className="text-lg">
+              <strong>{t("prediction")}:</strong> {predictionData.prediction}
+            </p>
+            <p className="text-lg">
+              <strong>{t("confidence")}:</strong> {predictionData.confidence}
+            </p>
+            <p className="text-lg">
+              <strong>{t("severity")}:</strong> {predictionData.severity}
+            </p>
+            <p className="text-lg">
+              <strong>{t("severity_level")}:</strong>{" "}
+              {predictionData.severity_level}
+            </p>
+          </div>
+
+          {/* Displaying the image */}
+          <div className="mt-6 text-center">
+            <strong>{t("image")}:</strong>
+            <div className="mt-4">
+              <img
+                src={predictionData.image_url}
+                alt="Uploaded Image"
+                className="w-80 h-80 object-cover rounded-md shadow-lg mx-auto"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+      <div className="flex justify-center mt-6">
+        <Link
+          to="/graph"
+          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out"
+        >
+          {t("graph")}
+        </Link>
       </div>
-    </div>
-  </div>
-)}
-
-
     </div>
   );
 };

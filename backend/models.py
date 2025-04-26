@@ -30,7 +30,7 @@ def verify_user(username, password):
         return {"token": access_token}
     return "User does not exist"
 # User Data Schema (Storage)
-def store_user_data(username, age, prediction, confidence, severity, photo,current_user):
+def store_user_data(username, age, prediction, confidence, severity,severity_level, photo,current_user):
     system_time = datetime.now()
     # print(photo)
     user_data = {
@@ -39,6 +39,7 @@ def store_user_data(username, age, prediction, confidence, severity, photo,curre
         "prediction":prediction,
         "confidence": confidence,
         "severity": severity,
+        "severity_level":severity_level,
         "photo": photo,
         "date": system_time.strftime('%d-%m-%Y'),
         "time": system_time.strftime('%H:%M:%S')

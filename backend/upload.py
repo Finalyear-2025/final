@@ -23,9 +23,6 @@ cloudinary.config(
 @jwt_required()
 def upload_image():
     print("hlo path")
-    # print("Hlo 2ulpoad")
-    # print(request.files)
-    # print("Form Data:", request.form.get('file'))
     if 'file' not in request.files:
         # print("hlo")
         return jsonify({"message": "No file uploaded"}), 200
@@ -53,7 +50,7 @@ def upload_image():
     confidence_score = answer['confidence']      # → '94.98%'
     severity_text = answer['severity']           # → 'Low severity'
     severity_level = answer['severity_level']
-    store_user_data(patient_name,patient_age,predicted_class,confidence_score,severity_text,filepath,current_user)
+    store_user_data(patient_name,patient_age,predicted_class,confidence_score,severity_text,severity_level,filepath,current_user)
     response = {
         "message": "File uploaded successfully",
         "prediction": answer['prediction'],
