@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next"; // ✅ Import this
+import Mapread from "./map";
 
 const UploadForm = () => {
   const { t } = useTranslation(); // ✅ Hook
@@ -114,6 +115,10 @@ const UploadForm = () => {
           {t("graph")}
         </Link>
       </div>
+      <Mapread></Mapread>
+      <div className="mt-8 bg-blue-600 h-16">
+  {/* This div adds a gap with a blue background */}
+</div>
     </div>
   );
 };

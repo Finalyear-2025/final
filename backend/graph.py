@@ -10,12 +10,6 @@ from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from db import mongo
 graph_bp=Blueprint('graph',__name__)
-# Example data
-# confidence_scores = [95, 60, 78, 85, 55, 90, 45, 50, 70, 62]
-# severity_levels = [1, 1, 0, 1, 0, 1, 0, 1, 0, 0]
-# severity_list = []
-# date_list = []
-# confidence_list=[]
 
 # Risk Report Generator
 def generate_risk_report(confidence, severity):

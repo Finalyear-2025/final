@@ -5,6 +5,7 @@ from auth import auth_bp
 from upload import upload_bp
 from upload import history_bp
 import os
+from map import map_bp
 from graph import graph_bp
 from dotenv import load_dotenv
 load_dotenv()
@@ -33,6 +34,7 @@ os.makedirs("uploads", exist_ok=True)
 # Register Blueprints (Routes)
 print("hlo app")
 app.register_blueprint(auth_bp, url_prefix="/auth")
+app.register_blueprint(map_bp, url_prefix="/map")
 app.register_blueprint(upload_bp, url_prefix="/upload")
 app.register_blueprint(history_bp, url_prefix="/get_history")
 app.register_blueprint(graph_bp, url_prefix="/graph")

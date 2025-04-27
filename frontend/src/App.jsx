@@ -5,6 +5,7 @@ import Signup from "./components/Signup";
 import UploadForm from "./components/UploadForm";
 import ShowResult from "./components/Show";
 import ChartViewer from "./components/chart";
+import Mapread from "./components/map";
 function App() {
   return (
     <Router>
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<UploadForm />} />
+        <Route path="/map" element={<Mapread />} />
       </Routes>
     </Router>
   );
