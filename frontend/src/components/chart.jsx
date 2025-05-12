@@ -37,7 +37,7 @@ const ChartViewer = () => {
   return (
     <div className="max-w-3xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-xl text-center">
       <h2 className="text-2xl font-semibold mb-4 text-gray-800">
-        📊 Risk Assessment Chart
+        📊 Progress Report
       </h2>
 
       {error && (

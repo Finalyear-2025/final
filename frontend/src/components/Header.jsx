@@ -14,7 +14,7 @@ const Header = () => {
         className="text-2xl font-bold mb-2 md:mb-0 cursor-pointer"
         onClick={() => (window.location.href = "/")}
       >
-        🩺 {t("title")}
+        🩺🧬  {t("title")}
       </h1>
       <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
         {/* Language Switcher */}

@@ -22,10 +22,7 @@ const Login = () => {
         navigate("/Signup");
       } else {
         localStorage.setItem("token", res.data.token);
-        setTimeout(() => {
-          localStorage.removeItem("token");
-          console.log("Token removed after 1 hour");
-        }, 3600000);
+        localStorage.setItem("tokenExpiry", Date.now() + 3600000 ); // 1 hour
 
         alert(t("login_success")); // ✅
         navigate("/");

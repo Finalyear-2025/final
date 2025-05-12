@@ -1,7 +1,7 @@
 {
     "upload_history": "পূর্ববর্তী আপলোড ইতিহাস",
     "pic": "ছবি",
-    "graph": "গ্রাফ",
+    "graph": "উন্নতির গ্রাফ",
     "cancer_type": "ক্যান্সার ধরন",
     "date_time": "তারিখ ও সময়",
     "no_history": "কোন ইতিহাস পাওয়া যায়নি",
@@ -12,6 +12,7 @@
     "login_failed": "লগইন ব্যর্থ হয়েছে!",
     "user_not_exist": "ইউজার নেই",
     "signup": "সাইন আপ",
+    "severity_level": "তীব্রতার স্তর",
   "confirm_password": "পাসওয়ার্ড নিশ্চিত করুন",
   "password_mismatch": "পাসওয়ার্ড মিলছে না!",
   "signup_success": "সাইন আপ সফল! অনুগ্রহ করে লগইন করুন।",
